@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <!-- Meta tags to tell the browser which character set to use, scale acoss devices, description etc. -->
+    <title>Home Page</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Rep project">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to stylesheet for style if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <style>
+   
+    body {
+      font-family: sans-serif;
+      color:white;
+      background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSECBVm4MF5BjkCYUWrakysxb99jyWnutsn1A&usqp=CAU) no-repeat;
+      background-size: cover;
+    }
+  
+
+    .content {   
+      padding-top: 7%;
+    }
+  
+
+
+    #text_box {
+      padding: 5em 0;                            
+      background-color: transparent;   
+      width: 50vw;                    
+      margin-left : 25vw;                     
+      box-shadow: 0px 0px 5px 2px black;     
+    }
+  
+  
+    #text_box h1 {
+      font-size: 7.5rem;
+      font-weight: 100;
+      text-align: center;
+    }
+  
+ 
+    #text_box p {
+      text-align: center;
+      font-weight:50;
+      font-size: 1.5rem;
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+  
+    
+    .fa {
+      padding: 3%;
+      font-size: 2rem;
+      width: 3%;
+      text-align:center; 
+    } 
+  
+	.navbar {
+	  overflow: hidden;
+	  background-color: #333;
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	}
+
+	.navbar a {
+	  float: left;
+	  display: block;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+
+	.navbar a:hover {
+	  background: #ddd;
+	  color: black;
+	}
+
+  
+  </style>
+  <!-- Navigation menu at the top of the page  -->
+  <header>
+	<div class="navbar">
+	  <a href="/login.html/">Login<a>
+	</div>
+  </header>
+    
+  <body>
+    <!-- Main container  -->
+    <div class="content">
+      <!-- Sub container to hold the text -->
+      <div id="text_box" >
+        <h1>ATU iLearn Library</h1>
+        </br>
+        <p>Online learning made easy </br> Select from a wide range of topics with our Flask server which uses a REST API.</p>
+        <br>
+      </div>  <!-- End of sub container  -->
+    </div> <!-- End of main container  -->
+
+  </body>
+ </html>
