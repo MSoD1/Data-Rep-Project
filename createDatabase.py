@@ -78,7 +78,7 @@ class DataRepDAO:
     def createBookTable(self):
         cursor = self.getcursor()
 
-        sql = '''CREATE TABLE book (deptID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+        sql = '''CREATE TABLE book (bookID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
                 author VARCHAR(200) NOT NULL, 
                 title VARCHAR(200))'''
 
@@ -94,7 +94,7 @@ class DataRepDAO:
         sql = '''CREATE TABLE students (studentID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
                 firstname VARCHAR(200) NOT NULL, 
                 lastname VARCHAR(200) NOT NULL,
-                dept INT NOT NULL, FOREIGN KEY(dept) REFERENCES book(deptID))'''
+                bookid INT NOT NULL, FOREIGN KEY(bookid) REFERENCES book(bookID))'''
 
         cursor.execute(sql)
         self.connection.commit()
