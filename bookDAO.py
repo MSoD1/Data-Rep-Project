@@ -128,12 +128,12 @@ class BookDAO:
         print(students) 
         cursor = self.getcursor()
 
-        sql = "INSERT INTO students (studentID, firstname, lastname, dept) VALUES (%s,%s,%s,%s)"
+        sql = "INSERT INTO students (studentID, firstname, lastname, bookid) VALUES (%s,%s,%s,%s)"
         values = [
             students["studentID"],
             students["firstname"],
             students["lastname"],
-            students["dept"],
+            students["bookid"],
         ]  
 
         cursor.execute(sql, values)
@@ -147,9 +147,9 @@ class BookDAO:
         print(book) 
         cursor = self.getcursor()
 
-        sql = "INSERT INTO book(deptID, author, title) VALUES (%s,%s,%s)"
+        sql = "INSERT INTO book(bookID, author, title) VALUES (%s,%s,%s)"
         values = [
-            book["deptID"],
+            book["bookID"],
             book["author"],
             book["title"],
         ]  
@@ -162,7 +162,7 @@ class BookDAO:
     #####################
         # Function to convert Book responses to a dictionary
     def convert_to_dict(self,result):
-        colnames = ["deptID","author","title"]
+        colnames = ["bookID","author","title"]
         book= {}
 
         if result:
@@ -173,7 +173,7 @@ class BookDAO:
 
     # Function to convert Student response to a dictionary
     def convert_to_dict_student(self,result):
-        colnames = ["studentID","firstname","lastname","dept"]
+        colnames = ["studentID","firstname","lastname","bookid"]
         students= {}
 
         if result:
@@ -213,11 +213,11 @@ class BookDAO:
        
        ################################   
     # Function to get a book by id
-    def getBookById(self,deptID):
+    def getBookById(self,bookID):
         cursor = self.getcursor()
         
-        sql = "SELECT * FROM book WHERE deptID = %s"
-        values = [deptID]
+        sql = "SELECT * FROM book WHERE bookID = %s"
+        values = [bookID]
 
         cursor.execute(sql,values)
         result = cursor.fetchone()
@@ -227,12 +227,12 @@ class BookDAO:
         return book
 
         
-      # Function to get a student by department id
-    def getStudentByID(self,dept):
+      # Function to get a student by book id
+    def getStudentByID(self,bookid):
         cursor = self.getcursor()
         
-        sql = "SELECT * FROM students WHERE dept = %s"
-        values = [dept]
+        sql = "SELECT * FROM students WHERE bookid = %s"
+        values = [bookid]
 
         cursor.execute(sql,values)
         result = cursor.fetchone()
@@ -261,11 +261,11 @@ class BookDAO:
     # Function to update book information based on department ID
     def updateBook(self, book):
         cursor = self.getcursor() 
-        sql = "UPDATE book SET author = %s, title = %s WHERE deptID = %s"
+        sql = "UPDATE book SET author = %s, title = %s WHERE bookID = %s"
         values = [
             book['author'], 
             book['title'],
-            book['deptID']
+            book['bookID']
         ]  
 
         cursor.execute(sql, values)
@@ -276,11 +276,11 @@ class BookDAO:
     # Function to update student information based on student ID
     def updateStudents(self, students):
         cursor = self.getcursor() 
-        sql = "UPDATE students SET firstname = %s, lastname = %s, dept = %s WHERE studentID = %s"
+        sql = "UPDATE students SET firstname = %s, lastname = %s, bookid = %s WHERE studentID = %s"
         values = [
             students['firstname'], 
             students['lastname'],
-            students['dept'],
+            students['bookid'],
             students['studentID']
         ]  
 
@@ -291,11 +291,11 @@ class BookDAO:
         
 
     
-    # Function to delete a book based on department id
-    def deleteBook (self, deptID):
+    # Function to delete a book based on book id
+    def deleteBook (self, bookID):
         cursor = self.getcursor()
 
-        sql = "DELETE FROM book WHERE deptID = %s"
+        sql = "DELETE FROM book WHERE bookID = %s"
         values = [deptID]
 
         cursor.execute(sql,values)
@@ -342,11 +342,11 @@ if __name__ == "__main__":
     #bookDAO.register(user)
    
     ###### BOOK ######
-    #data = {"deptID":"221", "author":"Paul Deitel","title":"Intro to Python"}
+    #data = {"bookID":"221", "author":"Paul Deitel","title":"Intro to Python"}
     #bookDAO.createBook(data)
   
    ###### STUDENT ######
-    #data = {"studentID":"00411","firstname":"Megan","lastname":"Donovan","dept":"221"}
+    #data = {"studentID":"00411","firstname":"Megan","lastname":"Donovan","bookid":"221"}
     #bookDAO.createStudent(data)
   
 
