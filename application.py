@@ -85,7 +85,7 @@ def getAllStudents():
 
 # Get all users 
 # curl "http://127.0.0.1:5000/users"
-@app.route("/users", methods=["GET"])
+@app.route("/users/username", methods=["GET"])
 def getUserByName():
     return jsonify(bookDAO.getUserByName())
 
@@ -131,7 +131,7 @@ def create():
 
 # Update book
 # curl -i -H "Content-Type:application/json" -X PUT -d "{\"author\":\"--",\"title\":\"--"}"
-# http://127.0.0.1:5000/book/221
+# http://127.0.0.1:5000/book/1
 @app.route("/book/<int:bookID>", methods = ["PUT"])
 def update(bookID):
     foundBook = bookDAO.getBookById(bookID)
@@ -155,10 +155,10 @@ def update(bookID):
 
 # Update students
 # curl -i -H "Content-Type:application/json" -X PUT -d "{\"studentID\":\"--",\"firstname\":\"--",\"lastname\":\"--"}"
-# http://127.0.0.1:5000/students/221
-@app.route("/book/<int:bookID>", methods = ["PUT"])
-def update(bookID):
-    foundBook = bookDAO.getBookById(bookID)
+# http://127.0.0.1:5000/students/1
+@app.route("/students/<int:bookid>", methods = ["PUT"])
+def update(bookid):
+    foundBook = bookDAO.getStudentById(bookid)
 
     if not foundBook:
         abort(404)
@@ -166,14 +166,16 @@ def update(bookID):
     if not request.json:
         abort(400)
 
-    if 'author' in request.json:
-        foundBook['author'] = request.json['author']
-    if 'title' in request.json:
-        foundBook['title'] = request.json['title']
+    if 'firstname' in request.json:
+        foundBook['firstname'] = request.json['firstname']
+    if 'lastname' in request.json:
+        foundBook['lastname'] = request.json['lastname']
+    if 'studentID' in request.json:
+        foundBook['studentID'] = request.json['studentID']
 
-    values = (foundBook['author'], foundBook['title'])
+    values = (foundBook['firstname'], foundBook['lastname'], foundBook['studentID'])
 
-    bookDAO.updateBook(values)
+    bookDAO.updateStudents(values)
     return jsonify(foundBook)
         
 
@@ -184,7 +186,19 @@ def delete(bookID):
     bookDAO.deleteBook(bookID)
     return jsonify({"done":True})
 
+# Delete a book from student account
+# curl -X DELETE http://127.0.0.1:5000/students/1
+@app.route("/students/<int:bookid>", methods = ["DELETE"])
+def delete(bookid):
+    bookDAO.deleteStudents(bookid)
+    return jsonify({"done":True})
 
+# Delete a user
+# curl -X DELETE http://127.0.0.1:5000/users/odonovanm
+@app.route("/users/<username>", methods = ["DELETE"])
+def delete(username):
+    bookDAO.deleteUser(username)
+    return jsonify({"done":True})
 
 # Find book by author 
 # curl "http://127.0.0.1:5000/book/"
