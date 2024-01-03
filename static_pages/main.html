@@ -117,15 +117,15 @@
             </thead>
             <tr>
                <th scope="col">BookID</th>
-               <td><input type="text" class="form-control" name="bookID"  placeholder="Enter Book ID" required></td>
+               <td><input type="text" class="form-control" name="bookID"  placeholder="enter book id" required></td>
             </tr>
             <tr>
                <th scope="col">Author</th>
-               <td><input type="text" class="form-control" name="author" placeholder="Enter First Name" required></td>
+               <td><input type="text" class="form-control" name="author" placeholder="enter first name" required></td>
             </tr>
             <tr>
                <th scope="col">Title</th>
-               <td><input type="text" class="form-control" name="title" placeholder="Enter Title" required></td>
+               <td><input type="text" class="form-control" name="title" placeholder="enter title" required></td>
             </tr>
   
             <tr>
@@ -139,13 +139,13 @@
       </div>
    </div>
 
-   <!-- Form for creating new and updating existing Student data -->
-   <div id="createUpdatestu" style="display:none">
+   <!-- Form for creating new and updating existing student data -->
+   <div id="createUpdateStudent" style="display:none">
       <div style="width:900px; margin:0 auto;">
-         <h2 id="titleCreateStudent" class="h2">Create Student Account</h2>
-         <h2 id="titleUpdateStudent" class="h2">Update Student Account</h2>
+         <h2 id="titleCreatestudent" class="h2">Create Student Account</h2>
+         <h2 id="titleUpdatestudent" class="h2">Update Student Account</h2>
          <button onclick="showHome()" type="button" class="btn btn-primary">Home</button>
-         <button onclick="showStudentDisplay()" type="button" class="btn btn-success">All Students</button>
+         <button onclick="showstudentDisplay()" type="button" class="btn btn-success">All Students</button>
          <table id="createUpdateStudentForm" class="table table-dark">
             <thead class="thead-dark">
                <tr>
@@ -153,9 +153,9 @@
                   <th scope="col">Student Input</th>
                </tr>
             </thead>
-            <tr>
+			<tr>
                <th scope="col">BookID</th>
-               <td><input type="text" class="form-control" name="bookid" placeholder="Enter Book ID" required></td> 
+               <td><input type="number" class="form-control" name="bookid" placeholder="Enter Book ID number" required></td>
             </tr>
             <tr>
                <th scope="col">FirstName</th>
@@ -167,13 +167,13 @@
             </tr>
             <tr>
                <th scope="col">StudentID</th>
-               <td><input type="text" class="form-control" name="studentID" placeholder="Enter Student ID" required></td> 
+               <td><input type="text" class="form-control" name="StudentID" placeholder="Enter Student ID" required></td> 
             </tr>
             <tr>
                <td></td>
                <td>
-                  <button id="createStudent" onclick="doCreateStudent()" type="button" class="btn btn-success">Create</button>
-                  <button id="updateStudent" onclick="doUpdateStudent()" type="button" class="btn btn-info">Update</button>
+                  <button id="createstudent" onclick="doCreatestudent()" type="button" class="btn btn-success">Create</button>
+                  <button id="updatestudent" onclick="doUpdatestudent()" type="button" class="btn btn-info">Update</button>
                </td>
             </tr>
          </table>
@@ -189,7 +189,7 @@
          <table id="BookTable" class="table table-dark">
             <thead class="thead-dark">
                <tr>
-                  <th scope="col">bookID</th>
+                  <th scope="col">BookID</th>
                   <th scope="col">Author</th>
                   <th scope="col">Title</th>
                </tr>
@@ -203,11 +203,11 @@
       <div style="width:900px; margin:0 auto;">
          <h2 class="h2">Student Information</h2>
          <button onclick="showHome()" type="button" class="btn btn-primary">Home</button>
-         <button onclick="showStudentCreate()" type="button" class="btn btn-success">Create Student Account</button>
-         <table id="StudentTable" class="table table-dark">
+         <button onclick="showstudentCreate()" type="button" class="btn btn-success">Create Student Account</button>
+         <table id="studentTable" class="table table-dark">
             <thead class="thead-dark">
                <tr>
-                  <th scope="col">bookid</th>
+                  <th scope="col">BookID</th>
                   <th scope="col">FirstName</th>
                   <th scope="col">LastName</th>
                   <th scope="col">StudentID</th>
@@ -231,7 +231,7 @@
             <tr>
                <td>
                   <!-- Link to student display table -->
-                  <button onclick="showStudentDisplay()" type="button" class="btn btn-success">All Students</button>
+                  <button onclick="showstudentDisplay()" type="button" class="btn btn-success">All Students</button>
                </td>
             </tr>
          </table>
@@ -271,8 +271,8 @@
 
       function showBookUpdate(thisElem) {
          var rowElement = thisElem.parentNode.parentNode;
-         var book = readBookFromRow(rowElement)
-         populateBookForm(book)
+         var Book = readBookFromRow(rowElement)
+         populateBookForm(Book)
 
          document.getElementById('displayHome').style.display = "none"
          document.getElementById('displayBook').style.display = "none"
@@ -288,20 +288,20 @@
       }
 
       function readBookFromRow(rowElement) {
-         var book = {}
-         book.bookID = rowElement.getAttribute("id").substr(1);
-         book.author = rowElement.cells[1].firstChild.textContent
-         book.title = rowElement.cells[2].firstChild.textContent
-         return book
+         var Book = {}
+         Book.bookID = rowElement.getAttribute("id").substr(1);
+         Book.author = rowElement.cells[1].firstChild.textContent
+         Book.title = rowElement.cells[2].firstChild.textContent
+         return Book
       }
-      function populateBookForm(book) {
+      function populateBookForm(Book) {
          var form = document.getElementById('createUpdateBookForm')
 
-         form.querySelector('input[name="bookID"]').value = book.bookID
+         form.querySelector('input[name="bookID"]').value = Book.bookID
          //form.querySelector('input[name="bookID"]').disabled = true
 
-         form.querySelector('input[name="author"]').value = book.author
-         form.querySelector('input[name="title"]').value = book.title
+         form.querySelector('input[name="author"]').value = Book.author
+         form.querySelector('input[name="title"]').value = Book.title
       }
       function clearBookForm() {
          var form = document.getElementById('createUpdateBookForm')
@@ -314,24 +314,24 @@
       }
 
       function doUpdateBook() {
-         var book = getBookFromForm()
-         if (validateBookForm(book) == 1) {
-            updateBookServer(book)         
+         var Book = getBookFromForm()
+         if (validateBookForm(Book) == 1) {
+            updateBookServer(Book)         
          }
       }
 
-      function updateBookServer(book) {
+      function updateBookServer(Book) {
          // ajax updateBook
          host = window.location.origin
          $.ajax({
-            url: host + "/book/" + book.bookID,
-            data: JSON.stringify(book),
+            url: host + "/book/" + Book.bookID,
+            data: JSON.stringify(Book),
             method: "PUT",
             dataType: "JSON",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                console.log(result)
-               updateBookTableRow(book)
+               updateBookTableRow(Book)
                showBookDisplay()
                clearBookForm()
             },
@@ -341,29 +341,29 @@
          })
       }
 
-      function updateBookTableRow(book) {
-         var rowElement = document.getElementById(book.bookID)
-         //var rowElement.cells[0].firstChild.textContent = book.bookID
-		 rowElement.cells[1].firstChild.textContent = book.author
-         rowElement.cells[2].firstChild.textContent = book.title
-         //console.log("updating book table")
+      function updateBookTableRow(Book) {
+         var rowElement = document.getElementById(Book.bookID)
+         //var rowElement.cells[0].firstChild.textContent = Book.bookID
+		 rowElement.cells[1].firstChild.textContent = Book.author
+         rowElement.cells[2].firstChild.textContent = Book.title
+         //console.log("updating Book table")
       }
 
       function doCreateBook() {
-         var dept = getBookFromForm()
-         if (validateBookForm(book) == 1) {
+         var Book = getBookFromForm()
+         if (validateBookForm(Book) == 1) {
             // ajax createBook
             host = window.location.origin
             $.ajax({
                url: host + '/book',
-               data: JSON.stringify(book),
+               data: JSON.stringify(Book),
                method: 'POST',
                datatype: 'JSON',
                contentType: "application/json; charset=utf-8",
                success: function (result) {
                   console.log("Book " + result + " added")
-                  book.bookID = result
-                  addBooktoTable(book)
+                  Book.BookID = result
+                  addBooktoTable(Book)
                   showBookDisplay()
                   clearBookForm()
                },
@@ -379,20 +379,20 @@
          var tableElement = document.getElementById('BookTable');
          var rowElement = thisElem.parentNode.parentNode;
          var index = rowElement.rowIndex;
-         var book = rowElement.getAttribute("id").substr(1);
+         var Book = rowElement.getAttribute("id").substr(1);
          // ajax deleteBook
          host = window.location.origin
          $.ajax({
-            url: host + "/book/"+bookID,
+            url: host + "/book/"+Book,
             method:"DELETE",
             dateType:"JSON",
             success:function(result){
                console.log(result)
                if (result.done == false){
-                  alert("WARNING: Cannot delete Book!")
+                  alert("WARNING: Cannot delete Book with associated with book id!")
                } else {
                   tableElement.deleteRow(index);
-                  console.log("Book " + book + " deleted")
+                  console.log("Book " + Book + " deleted")
                }
             },
             error:function(xhr,status,error){
@@ -401,7 +401,7 @@
          })
       }
 
-      function showStudentDisplay() {
+      function showstudentDisplay() {
          document.getElementById('displayHome').style.display = "none"
          document.getElementById('displayBook').style.display = "none"
          document.getElementById('displayStudent').style.display = "block"
@@ -409,8 +409,8 @@
          document.getElementById('createUpdateStudent').style.display = "none"
       }
 
-      function showStudentCreate() {
-         clearStudentForm()
+      function showstudentCreate() {
+         clearstudentForm()
 
          document.getElementById('displayHome').style.display = "none"
          document.getElementById('displayBook').style.display = "none"
@@ -418,17 +418,17 @@
          document.getElementById('createUpdateBook').style.display = "none"
          document.getElementById('createUpdateStudent').style.display = "block"
          // title
-         document.getElementById('titleCreateStudent').style.display = "block"
-         document.getElementById('titleUpdateStudent').style.display = "none"
+         document.getElementById('titleCreatestudent').style.display = "block"
+         document.getElementById('titleUpdatestudent').style.display = "none"
          // buttons
-         document.getElementById('createStudent').style.display = "block"
-         document.getElementById('updateStudent').style.display = "none"
+         document.getElementById('createstudent').style.display = "block"
+         document.getElementById('updatestudent').style.display = "none"
       }
 
-      function showStudentUpdate(thisElem) {
+      function showstudentUpdate(thisElem) {
          var rowElement = thisElem.parentNode.parentNode;
-         var student = readStudentFromRow(rowElement)
-         populateStudentForm(student)
+         var student = readstudentFromRow(rowElement)
+         populatestudentForm(student)
 
          document.getElementById('displayHome').style.display = "none"
          document.getElementById('displayBook').style.display = "none"
@@ -436,23 +436,23 @@
          document.getElementById('createUpdateBook').style.display = "none"
          document.getElementById('createUpdateStudent').style.display = "block"
          // title
-         document.getElementById('titleCreateStudent').style.display = "none"
-         document.getElementById('titleUpdateStudent').style.display = "block"
+         document.getElementById('titleCreatestudent').style.display = "none"
+         document.getElementById('titleUpdatestudent').style.display = "block"
          // buttons
-         document.getElementById('createStudent').style.display = "none"
-         document.getElementById('updateStudent').style.display = "block"
+         document.getElementById('createstudent').style.display = "none"
+         document.getElementById('updatestudent').style.display = "block"
       }
 
-      function readStudentFromRow(rowElement) {
+      function readstudentFromRow(rowElement) {
          var student = {}
          student.bookid = rowElement.getAttribute("id").substr(1);
          student.firstname = rowElement.cells[1].firstChild.textContent
          student.lastname = rowElement.cells[2].firstChild.textContent
-         student.studentID = rowElement.cells[3].firstChild.textContent
+         student.StudentID = rowElement.cells[3].firstChild.textContent
          return student
       }
 
-      function populateStudentForm(student) {
+      function populatestudentForm(student) {
          var form = document.getElementById('createUpdateStudentForm')
 
          form.querySelector('input[name="bookid"]').value = student.bookid
@@ -460,9 +460,9 @@
 
          form.querySelector('input[name="firstname"]').value = student.firstname
          form.querySelector('input[name="lastname"]').value = student.lastname
-         form.querySelector('input[name="studentID"]').value = student.studentID
+         form.querySelector('input[name="StudentID"]').value = student.StudentID
       }
-      function clearStudentForm() {
+      function clearstudentForm() {
          var form = document.getElementById('createUpdateStudentForm')
 
          form.querySelector('input[name="bookid"]').value = ''
@@ -470,17 +470,17 @@
 
          form.querySelector('input[name="firstname"]').value = ''
          form.querySelector('input[name="lastname"]').value = ''
-         form.querySelector('input[name="studentID"]').value = ''
+         form.querySelector('input[name="StudentID"]').value = ''
       }
 
-      function doUpdateStudent() {
-         var student = getStudentFromForm()
-         if (validateStudentForm(student) == 1) {
-            updateStudentServer(student)       
+      function doUpdatestudent() {
+         var student = getstudentFromForm()
+         if (validatestudentForm(student) == 1) {
+            updatestudentServer(student)       
          }
       }
 
-      function updateStudentServer(student) {
+      function updatestudentServer(student) {
          // ajax updatestudent
          host = window.location.origin
          $.ajax({
@@ -491,29 +491,29 @@
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                console.log(result)
-               updateStudentTableRow(student)
-               showStudentDisplay()
-               clearStudentForm()
+               updatestudentTableRow(student)
+               showstudentDisplay()
+               clearstudentForm()
             },
             error: function (xhr, status, error) {
                console.log("error" + error)
-               // NOTE: Book Id has to exist
+               // NOTE: BookID has to exist to assign a student to a BookID
                alert("WARNING: INPUT ERROR ID not found!")
             }
          })
       }
 
-      function updateStudentTableRow(student) {
+      function updatestudentTableRow(student) {
          var rowElement = document.getElementById(student.bookid)
          rowElement.cells[1].firstChild.textContent = student.firstname
          rowElement.cells[2].firstChild.textContent = student.lastname
-         rowElement.cells[3].firstChild.textContent = student.studentID
+         rowElement.cells[3].firstChild.textContent = student.StudentID
       }
 
-      function doCreateStudent() {
-         var student = getStudentFromForm()
-         if (validateStudentForm(bookid) == 1) {
-            // ajax createStudent
+      function doCreatestudent() {
+         var student = getstudentFromForm()
+         if (validatestudentForm(student) == 1) {
+            // ajax createstudent
             host = window.location.origin
             $.ajax({
                url: host + '/students',
@@ -522,27 +522,27 @@
                datatype: 'JSON',
                contentType: "application/json; charset=utf-8",
                success: function (result) {
-                  console.log("Student Account Book" + result + " created")
+                  console.log("student Account " + result + " created")
                   student.bookid = result
-                  addStudenttoTable(student)
-                  showStudentDisplay()
-                  clearStudentForm()
+                  addstudentTable(student)
+                  showstudentDisplay()
+                  clearstudentForm()
                },
                error: function (xhr, status, error) {
                   console.log("error " + error)
-                  // NOTE: Book has to exist to assign a student
-                  alert("WARNING: INPUT ERROR ID not found!")
+                  // NOTE: bookid has to exist to assign a student to a bookid
+                  alert("WARNING: INPUT ERROR Department ID not found!")
                }
             })
          }
       }
 
-      function doStudentDelete(thisElem){
-         var tableElement = document.getElementById('StudentTable');
+      function dostudentDelete(thisElem){
+         var tableElement = document.getElementById('studentTable');
          var rowElement = thisElem.parentNode.parentNode;
          var index = rowElement.rowIndex;
          var student = rowElement.getAttribute("id").substr(1);
-         // ajax deleteStudent
+         // ajax deletestudent
          host = window.location.origin
          $.ajax({
             url: host + "/students/"+ student,
@@ -550,7 +550,7 @@
             dateType:"JSON",
             success:function(result){
                tableElement.deleteRow(index);
-               console.log("Student Book Account " + student + " deleted")
+               console.log(" Book " + student + "has been deleted from Student Account")
             },
             error:function(xhr,status,error){
                console.log(error)
@@ -568,12 +568,12 @@
 
       function getBookFromForm(){
          var form = document.getElementById('createUpdateBookForm')
-         var book = {}
-         book.bookID = parseInt(form.querySelector('input[name="bookID"]').value)
-         book.author = form.querySelector('input[name="author"]').value
-         book.title = form.querySelector('input[name="title"]').value
-         // console.log(book)
-         return book
+         var Book = {}
+         Book.bookID = parseInt(form.querySelector('input[name="bookID"]').value)
+         Book.author = form.querySelector('input[name="author"]').value
+         Book.title = form.querySelector('input[name="title"]').value
+         // console.log(Book)
+         return Book
       }
 
       function validateBookForm(d){
@@ -586,20 +586,20 @@
          return 1
       }
 
-      function getStudentFromForm(){
+      function getstudentFromForm(){
          var form = document.getElementById('createUpdateStudentForm')
          var student = {}
          student.bookid = parseInt(form.querySelector('input[name="bookid"]').value)
          student.firstname = form.querySelector('input[name="firstname"]').value
          student.lastname = form.querySelector('input[name="lastname"]').value
-         student.studentID = parseInt(form.querySelector('input[name="studentID"]').value)
+         student.StudentID = parseInt(form.querySelector('input[name="StudentID"]').value)
          // console.log(student)
          return student
       }
 
-      function validateStudentForm(e){
-         // Check if any student form fields are empty
-         if (e.firstname.length == 0 || e.lastname.length == 0 || Number.isNaN(e.studentID) == true){
+      function validatestudentForm(e){
+         // Check if any fields are empty
+         if (e.firstname.length == 0 || e.lastname.length == 0 || Number.isNaN(e.StudentID) == true){
             alert("WARNING: Please include your Full Name and Student Number")
             return 0
          }
@@ -607,15 +607,15 @@
       }
 
       function populateBookTable(){
-         // ajax getAllBooks
+         // ajax getAllBook
          host = window.location.origin
          $.ajax({
             url: host + '/book',
             method: 'GET',
             datatype: 'JSON',
             success: function (results) {
-               for (book of results) {
-                  addBooktoTable(book)
+               for (Book of results) {
+                  addBooktoTable(Book)
                }
             },
             error: function (xhr, status, error) {
@@ -624,8 +624,8 @@
          })
       }
 
-      function populateStudentTable(){
-         // ajax getAllStudent
+      function populatestudentTable(){
+         // ajax getAllstudent
          host = window.location.origin
          $.ajax({
             url: host + '/students',
@@ -633,7 +633,7 @@
             datatype: 'JSON',
             success: function (results) {
                for (student of results) {
-                  addStudenttoTable(student)
+                  addstudentTable(student)
                }
             },
             error: function (xhr, status, error) {
@@ -642,28 +642,28 @@
          })
       }
 
-      function addBooktoTable(book){
-         // console.log("add to dept table working")
+      function addBooktoTable(Book){
+         // console.log("add to Book table working")
          var tableElem = document.getElementById('BookTable')
          var rowElem = tableElem.insertRow(-1)
-         rowElem.setAttribute('id', "d"+book.bookID)
+         rowElem.setAttribute('id', "d"+Book.bookID)
          var cell1 = rowElem.insertCell(0);
-         cell1.innerHTML = book.bookID
+         cell1.innerHTML = Book.bookID
          var cell2 = rowElem.insertCell(1);
-         cell2.innerHTML = book.author
+         cell2.innerHTML = Book.author
          var cell3 = rowElem.insertCell(2);
-         cell3.innerHTML = book.title
+         cell3.innerHTML = Book.title
          var cell4 = rowElem.insertCell(3);
          cell4.innerHTML = '<button onclick="showBookUpdate(this)"  type="button" class="btn btn-info">Update</button>'
          var cell5 = rowElem.insertCell(4);
          cell5.innerHTML = '<button onclick="doBookDelete(this)" type="button" class="btn btn-danger">Delete</button>'
       }
 
-      function addStudenttoTable(student){
-         // console.log("add to stu table working")
-         var tableElem = document.getElementById('StudentTable')
+      function addstudentTable(student){
+         // console.log("add to student table working")
+         var tableElem = document.getElementById('studentTable')
          var rowElem = tableElem.insertRow(-1)
-         rowElem.setAttribute('id', +student.bookid)
+         rowElem.setAttribute('id', "e"+student.bookid)
          var cell1 = rowElem.insertCell(0);
          cell1.innerHTML = student.bookid
          var cell2 = rowElem.insertCell(1);
@@ -673,13 +673,13 @@
          var cell4 = rowElem.insertCell(3);
          cell4.innerHTML = student.studentID
          var cell5 = rowElem.insertCell(4);
-         cell5.innerHTML = '<button onclick="showStudentUpdate(this)"  type="button" class="btn btn-info">Update</button>'
+         cell5.innerHTML = '<button onclick="showstudentUpdate(this)"  type="button" class="btn btn-info">Update</button>'
          var cell6 = rowElem.insertCell(5);
-         cell6.innerHTML = '<button onclick="doStudentDelete(this)" type="button" class="btn btn-danger">Delete</button>'
+         cell6.innerHTML = '<button onclick="dostudentDelete(this)" type="button" class="btn btn-danger">Delete</button>'
       }
 
       populateBookTable()
-      populateStudentTable()
+      populatestudentTable()
 
    </script>
 </body>
