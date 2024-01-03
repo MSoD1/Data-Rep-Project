@@ -128,12 +128,12 @@ class BookDAO:
         print(students) 
         cursor = self.getcursor()
 
-        sql = "INSERT INTO students (studentID, firstname, lastname, bookid) VALUES (%s,%s,%s,%s)"
+        sql = "INSERT INTO students (bookid, firstname, lastname, studentID) VALUES (%s,%s,%s,%s)"
         values = [
-            students["studentID"],
+            students["bookid"],
             students["firstname"],
             students["lastname"],
-            students["bookid"],
+            students["studentID"],
         ]  
 
         cursor.execute(sql, values)
@@ -173,7 +173,7 @@ class BookDAO:
 
     # Function to convert Student response to a dictionary
     def convert_to_dict_student(self,result):
-        colnames = ["studentID","firstname","lastname","bookid"]
+        colnames = ["bookid","firstname","lastname","studentID"]
         students= {}
 
         if result:
@@ -273,15 +273,15 @@ class BookDAO:
         self.close()
         return book
         
-    # Function to update student information based on student ID
+    # Function to update student information based on book ID
     def updateStudents(self, students):
         cursor = self.getcursor() 
-        sql = "UPDATE students SET firstname = %s, lastname = %s, bookid = %s WHERE studentID = %s"
+        sql = "UPDATE students SET firstname = %s, lastname = %s, studentID = %s WHERE bookid = %s"
         values = [
             students['firstname'], 
             students['lastname'],
-            students['bookid'],
-            students['studentID']
+            students['studentID'],
+            students['bookid']
         ]  
 
         cursor.execute(sql, values)
@@ -296,7 +296,7 @@ class BookDAO:
         cursor = self.getcursor()
 
         sql = "DELETE FROM book WHERE bookID = %s"
-        values = [deptID]
+        values = [bookID]
 
         cursor.execute(sql,values)
         self.connection.commit()
@@ -304,11 +304,11 @@ class BookDAO:
         return {}
     
     # Function to delete a student based on student id
-    def deleteStudents (self, studentID):
+    def deleteStudents (self, bookid):
         cursor = self.getcursor()
 
-        sql = "DELETE FROM students WHERE studentID = %s"
-        values = [studentID]
+        sql = "DELETE FROM students WHERE bookid = %s"
+        values = [bookid]
 
         cursor.execute(sql,values)
         self.connection.commit()
@@ -320,6 +320,19 @@ class BookDAO:
         cursor = self.getcursor()
 
         sql = "DELETE FROM users WHERE username = %s"
+        values = [username]
+
+        cursor.execute(sql,values)
+        self.connection.commit()
+        self.close()
+        return {}
+
+    
+        # Function to get a users based on username
+    def getUserByName (self, username):
+        cursor = self.getcursor()
+
+        sql = "SELECT* FROM users WHERE username = %s"
         values = [username]
 
         cursor.execute(sql,values)
@@ -342,11 +355,11 @@ if __name__ == "__main__":
     #bookDAO.register(user)
    
     ###### BOOK ######
-    #data = {"bookID":"221", "author":"Paul Deitel","title":"Intro to Python"}
+    #data = {"bookID":"1", "author":"Paul Deitel","title":"Intro to Python"}
     #bookDAO.createBook(data)
   
    ###### STUDENT ######
-    #data = {"studentID":"00411","firstname":"Megan","lastname":"Donovan","bookid":"221"}
+    #data = {"bookid":"1","firstname":"Megan","lastname":"Donovan","studentID":"00411"}
     #bookDAO.createStudent(data)
   
 
