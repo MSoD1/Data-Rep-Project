@@ -102,13 +102,13 @@
 	
 
    <!-- Form for creating new and updating existing Book data -->
-   <div id="createUpdateDept" style="display:none">
+   <div id="createUpdateBook" style="display:none">
       <div style="width:900px; margin:0 auto;">
-         <h2 id="titleCreateDept" class="h2">Check Out a Book</h2>
-         <h2 id="titleUpdateDept" class="h2">Update Library Log</h2>
+         <h2 id="titleCreateBook" class="h2">Check Out a Book</h2>
+         <h2 id="titleUpdateBook" class="h2">Update Library Log</h2>
          <button onclick="showHome()" type="button" class="btn btn-primary">Home</button>
-         <button onclick="showDeptDisplay()" type="button" class="btn btn-success">All Books</button>
-         <table id="createUpdateDeptForm" class="table table-dark">
+         <button onclick="showBookDisplay()" type="button" class="btn btn-success">All Books</button>
+         <table id="createUpdateBookForm" class="table table-dark">
             <thead class="thead-dark">
                <tr>
                   <th scope="col">Details</th>
@@ -116,23 +116,23 @@
                </tr>
             </thead>
             <tr>
-               <th scope="col">DeptID</th>
-               <td><input type="text" class="form-control" name="deptID"  placeholder="enter dept id" required></td>
+               <th scope="col">BookID</th>
+               <td><input type="text" class="form-control" name="bookID"  placeholder="Enter Book ID" required></td>
             </tr>
             <tr>
                <th scope="col">Author</th>
-               <td><input type="text" class="form-control" name="author" placeholder="enter first name" required></td>
+               <td><input type="text" class="form-control" name="author" placeholder="Enter First Name" required></td>
             </tr>
             <tr>
                <th scope="col">Title</th>
-               <td><input type="text" class="form-control" name="title" placeholder="enter title" required></td>
+               <td><input type="text" class="form-control" name="title" placeholder="Enter Title" required></td>
             </tr>
   
             <tr>
                <td></td>
                <td>
-                  <button id="createDept" onclick="doCreateDept()" type="button" class="btn btn-success">Check Out Book</button>
-                  <button id="updateDept" onclick="doUpdateDept()"type="button" class="btn btn-info">Update</button>
+                  <button id="createBook" onclick="doCreateBook()" type="button" class="btn btn-success">Check Out Book</button>
+                  <button id="updateBook" onclick="doUpdateBook()"type="button" class="btn btn-info">Update</button>
                </td>
             </tr>
          </table>
@@ -142,11 +142,11 @@
    <!-- Form for creating new and updating existing Student data -->
    <div id="createUpdatestu" style="display:none">
       <div style="width:900px; margin:0 auto;">
-         <h2 id="titleCreatestu" class="h2">Create Student Account</h2>
-         <h2 id="titleUpdatestu" class="h2">Update Student Account</h2>
+         <h2 id="titleCreateStudent" class="h2">Create Student Account</h2>
+         <h2 id="titleUpdateStudent" class="h2">Update Student Account</h2>
          <button onclick="showHome()" type="button" class="btn btn-primary">Home</button>
-         <button onclick="showstuDisplay()" type="button" class="btn btn-success">All Students</button>
-         <table id="createUpdatestuForm" class="table table-dark">
+         <button onclick="showStudentDisplay()" type="button" class="btn btn-success">All Students</button>
+         <table id="createUpdateStudentForm" class="table table-dark">
             <thead class="thead-dark">
                <tr>
                   <th scope="col">Details</th>
@@ -154,26 +154,26 @@
                </tr>
             </thead>
             <tr>
-               <th scope="col">StudentID</th>
-               <td><input type="text" class="form-control" name="studentID" placeholder="enter student id" required></td> 
+               <th scope="col">BookID</th>
+               <td><input type="text" class="form-control" name="bookid" placeholder="Enter Book ID" required></td> 
             </tr>
             <tr>
                <th scope="col">FirstName</th>
-               <td><input type="text" class="form-control" name="firstname" placeholder="enter first name" required></td>
+               <td><input type="text" class="form-control" name="firstname" placeholder="Enter First Name" required></td>
             </tr>
             <tr>
                <th scope="col">LastName</th>
-               <td><input type="text" class="form-control" name="lastname" placeholder="enter last name" required></td>
+               <td><input type="text" class="form-control" name="lastname" placeholder="Enter Last Name" required></td>
             </tr>
             <tr>
-               <th scope="col">Dept</th>
-               <td><input type="number" class="form-control" name="dept" placeholder="enter Dept ID number" required></td>
+               <th scope="col">StudentID</th>
+               <td><input type="text" class="form-control" name="studentID" placeholder="Enter Student ID" required></td> 
             </tr>
             <tr>
                <td></td>
                <td>
-                  <button id="createstu" onclick="doCreatestu()" type="button" class="btn btn-success">Create</button>
-                  <button id="updatestu" onclick="doUpdatestu()" type="button" class="btn btn-info">Update</button>
+                  <button id="createStudent" onclick="doCreateStudent()" type="button" class="btn btn-success">Create</button>
+                  <button id="updateStudent" onclick="doUpdateStudent()" type="button" class="btn btn-info">Update</button>
                </td>
             </tr>
          </table>
@@ -181,15 +181,15 @@
    </div>
 
    <!-- Table for displaying Book data -->
-   <div id="displayDept" style="display:none">
+   <div id="displayBook" style="display:none">
       <div style="width:900px; margin:0 auto;">
          <h2 class="h2">Books</h2>
          <button onclick="showHome()" type="button" class="btn btn-primary">Home</button>
-         <button onclick="showDeptCreate()" type="button" class="btn btn-success">Check Out Book</button>
-         <table id="deptTable" class="table table-dark">
+         <button onclick="showBookCreate()" type="button" class="btn btn-success">Check Out Book</button>
+         <table id="BookTable" class="table table-dark">
             <thead class="thead-dark">
                <tr>
-                  <th scope="col">DeptID</th>
+                  <th scope="col">bookID</th>
                   <th scope="col">Author</th>
                   <th scope="col">Title</th>
                </tr>
@@ -199,18 +199,18 @@
    </div>
 
    <!-- Table for displaying student data -->
-   <div id="displaystu" style="display:none">
+   <div id="displayStudent" style="display:none">
       <div style="width:900px; margin:0 auto;">
          <h2 class="h2">Student Information</h2>
          <button onclick="showHome()" type="button" class="btn btn-primary">Home</button>
-         <button onclick="showstuCreate()" type="button" class="btn btn-success">Create Student Account</button>
-         <table id="stuTable" class="table table-dark">
+         <button onclick="showStudentCreate()" type="button" class="btn btn-success">Create Student Account</button>
+         <table id="StudentTable" class="table table-dark">
             <thead class="thead-dark">
                <tr>
-                  <th scope="col">StudentID</th>
+                  <th scope="col">bookid</th>
                   <th scope="col">FirstName</th>
                   <th scope="col">LastName</th>
-                  <th scope="col">Dept</th>
+                  <th scope="col">StudentID</th>
                </tr>
             </thead>
          </table>
@@ -225,13 +225,13 @@
             <tr>
                <td>
                   <!-- Link to Book display table -->
-                  <button onclick="showDeptDisplay()" type="button" class="btn btn-success">All Books</button>
+                  <button onclick="showBookDisplay()" type="button" class="btn btn-success">All Books</button>
                </td>
             </tr>
             <tr>
                <td>
                   <!-- Link to student display table -->
-                  <button onclick="showstuDisplay()" type="button" class="btn btn-success">All Students</button>
+                  <button onclick="showStudentDisplay()" type="button" class="btn btn-success">All Students</button>
                </td>
             </tr>
          </table>
@@ -245,95 +245,95 @@
       host = window.location.origin
       logoutForm.action = host + "/logout";
 
-      function showDeptDisplay() {
+      function showBookDisplay() {
          document.getElementById('displayHome').style.display = "none"
-         document.getElementById('displayDept').style.display = "block"
-         document.getElementById('displaystu').style.display = "none"
-         document.getElementById('createUpdateDept').style.display = "none"
-         document.getElementById('createUpdatestu').style.display = "none"
+         document.getElementById('displayBook').style.display = "block"
+         document.getElementById('displayStudent').style.display = "none"
+         document.getElementById('createUpdateBook').style.display = "none"
+         document.getElementById('createUpdateStudent').style.display = "none"
       }
 
-      function showDeptCreate(){
-         clearDeptForm()
+      function showBookCreate(){
+         clearBookForm()
          
          document.getElementById('displayHome').style.display = "none"
-         document.getElementById('displayDept').style.display = "none"
-         document.getElementById('displaystu').style.display = "none"
-         document.getElementById('createUpdateDept').style.display = "block"
-         document.getElementById('createUpdatestu').style.display = "none"
+         document.getElementById('displayBook').style.display = "none"
+         document.getElementById('displayStudent').style.display = "none"
+         document.getElementById('createUpdateBook').style.display = "block"
+         document.getElementById('createUpdateStudent').style.display = "none"
          // title
-         document.getElementById('titleCreateDept').style.display = "block"
-         document.getElementById('titleUpdateDept').style.display = "none"
+         document.getElementById('titleCreateBook').style.display = "block"
+         document.getElementById('titleUpdateBook').style.display = "none"
          // buttons
-         document.getElementById('createDept').style.display = "block"
-         document.getElementById('updateDept').style.display = "none"
+         document.getElementById('createBook').style.display = "block"
+         document.getElementById('updateBook').style.display = "none"
       }
 
-      function showDeptUpdate(thisElem) {
+      function showBookUpdate(thisElem) {
          var rowElement = thisElem.parentNode.parentNode;
-         var dept = readDeptFromRow(rowElement)
-         populateDeptForm(dept)
+         var book = readBookFromRow(rowElement)
+         populateBookForm(book)
 
          document.getElementById('displayHome').style.display = "none"
-         document.getElementById('displayDept').style.display = "none"
-         document.getElementById('displaystu').style.display = "none"
-         document.getElementById('createUpdateDept').style.display = "block"
-         document.getElementById('createUpdatestu').style.display = "none"
+         document.getElementById('displayBook').style.display = "none"
+         document.getElementById('displayStudent').style.display = "none"
+         document.getElementById('createUpdateBook').style.display = "block"
+         document.getElementById('createUpdateStudent').style.display = "none"
          // title
-         document.getElementById('titleCreateDept').style.display = "none"
-         document.getElementById('titleUpdateDept').style.display = "block"
+         document.getElementById('titleCreateBook').style.display = "none"
+         document.getElementById('titleUpdateBook').style.display = "block"
          // buttons
-         document.getElementById('createDept').style.display = "none"
-         document.getElementById('updateDept').style.display = "block"
+         document.getElementById('createBook').style.display = "none"
+         document.getElementById('updateBook').style.display = "block"
       }
 
-      function readDeptFromRow(rowElement) {
-         var dept = {}
-         dept.deptID = rowElement.getAttribute("id").substr(1);
-         dept.author = rowElement.cells[1].firstChild.textContent
-         dept.title = rowElement.cells[2].firstChild.textContent
-         return dept
+      function readBookFromRow(rowElement) {
+         var book = {}
+         book.bookID = rowElement.getAttribute("id").substr(1);
+         book.author = rowElement.cells[1].firstChild.textContent
+         book.title = rowElement.cells[2].firstChild.textContent
+         return book
       }
-      function populateDeptForm(dept) {
-         var form = document.getElementById('createUpdateDeptForm')
+      function populateBookForm(book) {
+         var form = document.getElementById('createUpdateBookForm')
 
-         form.querySelector('input[name="deptID"]').value = dept.deptID
-         //form.querySelector('input[name="deptID"]').disabled = true
+         form.querySelector('input[name="bookID"]').value = book.bookID
+         //form.querySelector('input[name="bookID"]').disabled = true
 
-         form.querySelector('input[name="author"]').value = dept.author
-         form.querySelector('input[name="title"]').value = dept.title
+         form.querySelector('input[name="author"]').value = book.author
+         form.querySelector('input[name="title"]').value = book.title
       }
-      function clearDeptForm() {
-         var form = document.getElementById('createUpdateDeptForm')
+      function clearBookForm() {
+         var form = document.getElementById('createUpdateBookForm')
 
-         form.querySelector('input[name="deptID"]').value = ''
-         //form.querySelector('input[name="deptID"]').disabled = true
+         form.querySelector('input[name="bookID"]').value = ''
+         //form.querySelector('input[name="bookID"]').disabled = true
 
          form.querySelector('input[name="author"]').value = ''
          form.querySelector('input[name="title"]').value = ''
       }
 
-      function doUpdateDept() {
-         var dept = getDeptFromForm()
-         if (validateDeptForm(dept) == 1) {
-            updateDeptServer(dept)         
+      function doUpdateBook() {
+         var book = getBookFromForm()
+         if (validateBookForm(book) == 1) {
+            updateBookServer(book)         
          }
       }
 
-      function updateDeptServer(dept) {
-         // ajax updateDept
+      function updateBookServer(book) {
+         // ajax updateBook
          host = window.location.origin
          $.ajax({
-            url: host + "/Books/" + dept.deptID,
-            data: JSON.stringify(dept),
+            url: host + "/book/" + book.bookID,
+            data: JSON.stringify(book),
             method: "PUT",
             dataType: "JSON",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                console.log(result)
-               updateDeptTableRow(dept)
-               showDeptDisplay()
-               clearDeptForm()
+               updateBookTableRow(book)
+               showBookDisplay()
+               clearBookForm()
             },
             error: function (xhr, status, error) {
                console.log("error" + error)
@@ -341,31 +341,31 @@
          })
       }
 
-      function updateDeptTableRow(dept) {
-         var rowElement = document.getElementById(dept.deptID)
-         //var rowElement.cells[0].firstChild.textContent = dept.deptID
-		 rowElement.cells[1].firstChild.textContent = dept.author
-         rowElement.cells[2].firstChild.textContent = dept.title
-         //console.log("updating dept table")
+      function updateBookTableRow(book) {
+         var rowElement = document.getElementById(book.bookID)
+         //var rowElement.cells[0].firstChild.textContent = book.bookID
+		 rowElement.cells[1].firstChild.textContent = book.author
+         rowElement.cells[2].firstChild.textContent = book.title
+         //console.log("updating book table")
       }
 
-      function doCreateDept() {
-         var dept = getDeptFromForm()
-         if (validateDeptForm(dept) == 1) {
-            // ajax createDept
+      function doCreateBook() {
+         var dept = getBookFromForm()
+         if (validateBookForm(book) == 1) {
+            // ajax createBook
             host = window.location.origin
             $.ajax({
-               url: host + '/Books',
-               data: JSON.stringify(dept),
+               url: host + '/book',
+               data: JSON.stringify(book),
                method: 'POST',
                datatype: 'JSON',
                contentType: "application/json; charset=utf-8",
                success: function (result) {
                   console.log("Book " + result + " added")
-                  dept.deptID = result
-                  addDepttoTable(dept)
-                  showDeptDisplay()
-                  clearDeptForm()
+                  book.bookID = result
+                  addBooktoTable(book)
+                  showBookDisplay()
+                  clearBookForm()
                },
                error: function (xhr, status, error) {
                   console.log("error " + error)
@@ -375,24 +375,24 @@
 
       }
 
-      function doDeptDelete(thisElem){
-         var tableElement = document.getElementById('deptTable');
+      function doBookDelete(thisElem){
+         var tableElement = document.getElementById('BookTable');
          var rowElement = thisElem.parentNode.parentNode;
          var index = rowElement.rowIndex;
-         var dept = rowElement.getAttribute("id").substr(1);
-         // ajax deleteDept
+         var book = rowElement.getAttribute("id").substr(1);
+         // ajax deleteBook
          host = window.location.origin
          $.ajax({
-            url: host + "/Books/"+dept,
+            url: host + "/book/"+bookID,
             method:"DELETE",
             dateType:"JSON",
             success:function(result){
                console.log(result)
                if (result.done == false){
-                  alert("WARNING: Cannot delete Book with associated with student id!")
+                  alert("WARNING: Cannot delete Book!")
                } else {
                   tableElement.deleteRow(index);
-                  console.log("Book " + dept + " deleted")
+                  console.log("Book " + book + " deleted")
                }
             },
             error:function(xhr,status,error){
@@ -401,156 +401,156 @@
          })
       }
 
-      function showstuDisplay() {
+      function showStudentDisplay() {
          document.getElementById('displayHome').style.display = "none"
-         document.getElementById('displayDept').style.display = "none"
-         document.getElementById('displaystu').style.display = "block"
-         document.getElementById('createUpdateDept').style.display = "none"
-         document.getElementById('createUpdatestu').style.display = "none"
+         document.getElementById('displayBook').style.display = "none"
+         document.getElementById('displayStudent').style.display = "block"
+         document.getElementById('createUpdateBook').style.display = "none"
+         document.getElementById('createUpdateStudent').style.display = "none"
       }
 
-      function showstuCreate() {
-         clearstuForm()
+      function showStudentCreate() {
+         clearStudentForm()
 
          document.getElementById('displayHome').style.display = "none"
-         document.getElementById('displayDept').style.display = "none"
-         document.getElementById('displaystu').style.display = "none"
-         document.getElementById('createUpdateDept').style.display = "none"
-         document.getElementById('createUpdatestu').style.display = "block"
+         document.getElementById('displayBook').style.display = "none"
+         document.getElementById('displayStudent').style.display = "none"
+         document.getElementById('createUpdateBook').style.display = "none"
+         document.getElementById('createUpdateStudent').style.display = "block"
          // title
-         document.getElementById('titleCreatestu').style.display = "block"
-         document.getElementById('titleUpdatestu').style.display = "none"
+         document.getElementById('titleCreateStudent').style.display = "block"
+         document.getElementById('titleUpdateStudent').style.display = "none"
          // buttons
-         document.getElementById('createstu').style.display = "block"
-         document.getElementById('updatestu').style.display = "none"
+         document.getElementById('createStudent').style.display = "block"
+         document.getElementById('updateStudent').style.display = "none"
       }
 
-      function showstuUpdate(thisElem) {
+      function showStudentUpdate(thisElem) {
          var rowElement = thisElem.parentNode.parentNode;
-         var stu = readstuFromRow(rowElement)
-         populatestuForm(stu)
+         var student = readStudentFromRow(rowElement)
+         populateStudentForm(student)
 
          document.getElementById('displayHome').style.display = "none"
-         document.getElementById('displayDept').style.display = "none"
-         document.getElementById('displaystu').style.display = "none"
-         document.getElementById('createUpdateDept').style.display = "none"
-         document.getElementById('createUpdatestu').style.display = "block"
+         document.getElementById('displayBook').style.display = "none"
+         document.getElementById('displayStudent').style.display = "none"
+         document.getElementById('createUpdateBook').style.display = "none"
+         document.getElementById('createUpdateStudent').style.display = "block"
          // title
-         document.getElementById('titleCreatestu').style.display = "none"
-         document.getElementById('titleUpdatestu').style.display = "block"
+         document.getElementById('titleCreateStudent').style.display = "none"
+         document.getElementById('titleUpdateStudent').style.display = "block"
          // buttons
-         document.getElementById('createstu').style.display = "none"
-         document.getElementById('updatestu').style.display = "block"
+         document.getElementById('createStudent').style.display = "none"
+         document.getElementById('updateStudent').style.display = "block"
       }
 
-      function readstuFromRow(rowElement) {
-         var stu = {}
-         stu.studentID = rowElement.getAttribute("id").substr(1);
-         stu.firstname = rowElement.cells[1].firstChild.textContent
-         stu.lastname = rowElement.cells[2].firstChild.textContent
-         stu.dept = rowElement.cells[3].firstChild.textContent
-         return stu
+      function readStudentFromRow(rowElement) {
+         var student = {}
+         student.bookid = rowElement.getAttribute("id").substr(1);
+         student.firstname = rowElement.cells[1].firstChild.textContent
+         student.lastname = rowElement.cells[2].firstChild.textContent
+         student.studentID = rowElement.cells[3].firstChild.textContent
+         return student
       }
 
-      function populatestuForm(stu) {
-         var form = document.getElementById('createUpdatestuForm')
+      function populateStudentForm(student) {
+         var form = document.getElementById('createUpdateStudentForm')
 
-         form.querySelector('input[name="studentID"]').value = stu.studentID
-         //form.querySelector('input[name="studentID"]').disabled = true
+         form.querySelector('input[name="bookid"]').value = student.bookid
+         //form.querySelector('input[name="bookid"]').disabled = true
 
-         form.querySelector('input[name="firstname"]').value = stu.firstname
-         form.querySelector('input[name="lastname"]').value = stu.lastname
-         form.querySelector('input[name="dept"]').value = stu.dept
+         form.querySelector('input[name="firstname"]').value = student.firstname
+         form.querySelector('input[name="lastname"]').value = student.lastname
+         form.querySelector('input[name="studentID"]').value = student.studentID
       }
-      function clearstuForm() {
-         var form = document.getElementById('createUpdatestuForm')
+      function clearStudentForm() {
+         var form = document.getElementById('createUpdateStudentForm')
 
-         form.querySelector('input[name="studentID"]').value = ''
-        // form.querySelector('input[name="studentID"]').disabled = true
+         form.querySelector('input[name="bookid"]').value = ''
+        // form.querySelector('input[name="bookid"]').disabled = true
 
          form.querySelector('input[name="firstname"]').value = ''
          form.querySelector('input[name="lastname"]').value = ''
-         form.querySelector('input[name="dept"]').value = ''
+         form.querySelector('input[name="studentID"]').value = ''
       }
 
-      function doUpdatestu() {
-         var stu = getstuFromForm()
-         if (validatestuForm(stu) == 1) {
-            updatestuServer(stu)       
+      function doUpdateStudent() {
+         var student = getStudentFromForm()
+         if (validateStudentForm(student) == 1) {
+            updateStudentServer(student)       
          }
       }
 
-      function updatestuServer(stu) {
-         // ajax updatestu
+      function updateStudentServer(student) {
+         // ajax updatestudent
          host = window.location.origin
          $.ajax({
-            url: host + "/students/" + stu.studentID,
-            data: JSON.stringify(stu),
+            url: host + "/students/" + student.bookid,
+            data: JSON.stringify(student),
             method: "PUT",
             dataType: "JSON",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                console.log(result)
-               updatestuTableRow(stu)
-               showstuDisplay()
-               clearstuForm()
+               updateStudentTableRow(student)
+               showStudentDisplay()
+               clearStudentForm()
             },
             error: function (xhr, status, error) {
                console.log("error" + error)
-               // NOTE: deptID has to exist to assign a student to a deptID
+               // NOTE: Book Id has to exist
                alert("WARNING: INPUT ERROR ID not found!")
             }
          })
       }
 
-      function updatestuTableRow(stu) {
-         var rowElement = document.getElementById(stu.studentID)
-         rowElement.cells[1].firstChild.textContent = stu.firstname
-         rowElement.cells[2].firstChild.textContent = stu.lastname
-         rowElement.cells[3].firstChild.textContent = stu.dept
+      function updateStudentTableRow(student) {
+         var rowElement = document.getElementById(student.bookid)
+         rowElement.cells[1].firstChild.textContent = student.firstname
+         rowElement.cells[2].firstChild.textContent = student.lastname
+         rowElement.cells[3].firstChild.textContent = student.studentID
       }
 
-      function doCreatestu() {
-         var stu = getstuFromForm()
-         if (validatestuForm(stu) == 1) {
-            // ajax createstu
+      function doCreateStudent() {
+         var student = getStudentFromForm()
+         if (validateStudentForm(bookid) == 1) {
+            // ajax createStudent
             host = window.location.origin
             $.ajax({
                url: host + '/students',
-               data: JSON.stringify(stu),
+               data: JSON.stringify(student),
                method: 'POST',
                datatype: 'JSON',
                contentType: "application/json; charset=utf-8",
                success: function (result) {
-                  console.log("Student Account " + result + " created")
-                  stu.studentID = result
-                  addstutoTable(stu)
-                  showstuDisplay()
-                  clearstuForm()
+                  console.log("Student Account Book" + result + " created")
+                  student.bookid = result
+                  addStudenttoTable(student)
+                  showStudentDisplay()
+                  clearStudentForm()
                },
                error: function (xhr, status, error) {
                   console.log("error " + error)
-                  // NOTE: deptID has to exist to assign a student to a deptID
-                  alert("WARNING: INPUT ERROR Department ID not found!")
+                  // NOTE: Book has to exist to assign a student
+                  alert("WARNING: INPUT ERROR ID not found!")
                }
             })
          }
       }
 
-      function dostuDelete(thisElem){
-         var tableElement = document.getElementById('stuTable');
+      function doStudentDelete(thisElem){
+         var tableElement = document.getElementById('StudentTable');
          var rowElement = thisElem.parentNode.parentNode;
          var index = rowElement.rowIndex;
-         var stu = rowElement.getAttribute("id").substr(1);
-         // ajax deletestu
+         var student = rowElement.getAttribute("id").substr(1);
+         // ajax deleteStudent
          host = window.location.origin
          $.ajax({
-            url: host + "/students/"+ stu,
+            url: host + "/students/"+ student,
             method:"DELETE",
             dateType:"JSON",
             success:function(result){
                tableElement.deleteRow(index);
-               console.log("Student Account " + stu + " deleted")
+               console.log("Student Book Account " + student + " deleted")
             },
             error:function(xhr,status,error){
                console.log(error)
@@ -560,23 +560,23 @@
 
       function showHome() {
          document.getElementById('displayHome').style.display = "block"
-         document.getElementById('displayDept').style.display = "none"
-         document.getElementById('displaystu').style.display = "none"
-         document.getElementById('createUpdateDept').style.display = "none"
-         document.getElementById('createUpdatestu').style.display = "none"
+         document.getElementById('displayBook').style.display = "none"
+         document.getElementById('displayStudent').style.display = "none"
+         document.getElementById('createUpdateBook').style.display = "none"
+         document.getElementById('createUpdateStudent').style.display = "none"
       }
 
-      function getDeptFromForm(){
-         var form = document.getElementById('createUpdateDeptForm')
-         var dept = {}
-         dept.deptID = parseInt(form.querySelector('input[name="deptID"]').value)
-         dept.author = form.querySelector('input[name="author"]').value
-         dept.title = form.querySelector('input[name="title"]').value
-         // console.log(dept)
-         return dept
+      function getBookFromForm(){
+         var form = document.getElementById('createUpdateBookForm')
+         var book = {}
+         book.bookID = parseInt(form.querySelector('input[name="bookID"]').value)
+         book.author = form.querySelector('input[name="author"]').value
+         book.title = form.querySelector('input[name="title"]').value
+         // console.log(book)
+         return book
       }
 
-      function validateDeptForm(d){
+      function validateBookForm(d){
          // Code adapted from
          // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
          if (d.author.length == 0 || d.title.length == 0) {
@@ -586,36 +586,36 @@
          return 1
       }
 
-      function getstuFromForm(){
-         var form = document.getElementById('createUpdatestuForm')
-         var stu = {}
-         stu.studentID = parseInt(form.querySelector('input[name="studentID"]').value)
-         stu.firstname = form.querySelector('input[name="firstname"]').value
-         stu.lastname = form.querySelector('input[name="lastname"]').value
-         stu.dept = parseInt(form.querySelector('input[name="dept"]').value)
-         // console.log(stu)
-         return stu
+      function getStudentFromForm(){
+         var form = document.getElementById('createUpdateStudentForm')
+         var student = {}
+         student.bookid = parseInt(form.querySelector('input[name="bookid"]').value)
+         student.firstname = form.querySelector('input[name="firstname"]').value
+         student.lastname = form.querySelector('input[name="lastname"]').value
+         student.studentID = parseInt(form.querySelector('input[name="studentID"]').value)
+         // console.log(student)
+         return student
       }
 
-      function validatestuForm(e){
-         // Check if any student form fields are stuty
-         if (e.firstname.length == 0 || e.lastname.length == 0 || Number.isNaN(e.dept) == true){
-            alert("WARNING: Please include your Full Name and Dept Number")
+      function validateStudentForm(e){
+         // Check if any student form fields are empty
+         if (e.firstname.length == 0 || e.lastname.length == 0 || Number.isNaN(e.studentID) == true){
+            alert("WARNING: Please include your Full Name and Student Number")
             return 0
          }
          return 1
       }
 
-      function populateDeptTable(){
-         // ajax getAllDept
+      function populateBookTable(){
+         // ajax getAllBooks
          host = window.location.origin
          $.ajax({
-            url: host + '/Books',
+            url: host + '/book',
             method: 'GET',
             datatype: 'JSON',
             success: function (results) {
-               for (dept of results) {
-                  addDepttoTable(dept)
+               for (book of results) {
+                  addBooktoTable(book)
                }
             },
             error: function (xhr, status, error) {
@@ -624,16 +624,16 @@
          })
       }
 
-      function populatestuTable(){
-         // ajax getAllstu
+      function populateStudentTable(){
+         // ajax getAllStudent
          host = window.location.origin
          $.ajax({
             url: host + '/students',
             method: 'GET',
             datatype: 'JSON',
             success: function (results) {
-               for (stu of results) {
-                  addstutoTable(stu)
+               for (student of results) {
+                  addStudenttoTable(student)
                }
             },
             error: function (xhr, status, error) {
@@ -642,44 +642,44 @@
          })
       }
 
-      function addDepttoTable(dept){
+      function addBooktoTable(book){
          // console.log("add to dept table working")
-         var tableElem = document.getElementById('deptTable')
+         var tableElem = document.getElementById('BookTable')
          var rowElem = tableElem.insertRow(-1)
-         rowElem.setAttribute('id', "d"+dept.deptID)
+         rowElem.setAttribute('id', "d"+book.bookID)
          var cell1 = rowElem.insertCell(0);
-         cell1.innerHTML = dept.deptID
+         cell1.innerHTML = book.bookID
          var cell2 = rowElem.insertCell(1);
-         cell2.innerHTML = dept.author
+         cell2.innerHTML = book.author
          var cell3 = rowElem.insertCell(2);
-         cell3.innerHTML = dept.title
+         cell3.innerHTML = book.title
          var cell4 = rowElem.insertCell(3);
-         cell4.innerHTML = '<button onclick="showDeptUpdate(this)"  type="button" class="btn btn-info">Update</button>'
+         cell4.innerHTML = '<button onclick="showBookUpdate(this)"  type="button" class="btn btn-info">Update</button>'
          var cell5 = rowElem.insertCell(4);
-         cell5.innerHTML = '<button onclick="doDeptDelete(this)" type="button" class="btn btn-danger">Delete</button>'
+         cell5.innerHTML = '<button onclick="doBookDelete(this)" type="button" class="btn btn-danger">Delete</button>'
       }
 
-      function addstutoTable(stu){
+      function addStudenttoTable(student){
          // console.log("add to stu table working")
-         var tableElem = document.getElementById('stuTable')
+         var tableElem = document.getElementById('StudentTable')
          var rowElem = tableElem.insertRow(-1)
-         rowElem.setAttribute('id', "e"+stu.studentID)
+         rowElem.setAttribute('id', +student.bookid)
          var cell1 = rowElem.insertCell(0);
-         cell1.innerHTML = stu.StudentID
+         cell1.innerHTML = student.bookid
          var cell2 = rowElem.insertCell(1);
-         cell2.innerHTML = stu.firstname
+         cell2.innerHTML = student.firstname
          var cell3 = rowElem.insertCell(2);
-         cell3.innerHTML = stu.lastname
+         cell3.innerHTML = student.lastname
          var cell4 = rowElem.insertCell(3);
-         cell4.innerHTML = stu.dept
+         cell4.innerHTML = student.studentID
          var cell5 = rowElem.insertCell(4);
-         cell5.innerHTML = '<button onclick="showstuUpdate(this)"  type="button" class="btn btn-info">Update</button>'
+         cell5.innerHTML = '<button onclick="showStudentUpdate(this)"  type="button" class="btn btn-info">Update</button>'
          var cell6 = rowElem.insertCell(5);
-         cell6.innerHTML = '<button onclick="dostuDelete(this)" type="button" class="btn btn-danger">Delete</button>'
+         cell6.innerHTML = '<button onclick="doStudentDelete(this)" type="button" class="btn btn-danger">Delete</button>'
       }
 
-      populateDeptTable()
-      populatestuTable()
+      populateBookTable()
+      populateStudentTable()
 
    </script>
 </body>
