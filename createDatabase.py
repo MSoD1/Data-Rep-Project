@@ -91,10 +91,11 @@ class DataRepDAO:
     def createStudentTable(self):
         cursor = self.getcursor()
 
-        sql = '''CREATE TABLE students (studentID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+        sql = '''CREATE TABLE students (bookid INT NOT NULL, FOREIGN KEY(bookid) REFERENCES book(bookID), 
                 firstname VARCHAR(200) NOT NULL, 
                 lastname VARCHAR(200) NOT NULL,
-                bookid INT NOT NULL, FOREIGN KEY(bookid) REFERENCES book(bookID))'''
+                studentID INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+                )'''
 
         cursor.execute(sql)
         self.connection.commit()
