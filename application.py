@@ -127,6 +127,23 @@ def create():
 
     return jsonify(bookDAO.createBook(book))
 
+# Create a student account
+# curl -i -H "Content-Type:application/json" -X POST -d "{\"bookid\":\" --\",\"firstname\":\" --\",\"lastname":\"--\,\"studentID":\"--\}" 
+# http://127.0.0.1:5000/students
+@app.route("/students", methods = ["POST"])
+def createstudent():
+
+    if not request.json:
+        abort(400)
+
+    book = {
+        "bookid":request.json["bookID"],
+        "firstname":request.json["firstname"],
+        "lastname":request.json["lastname"],
+       "studentID":request.json["studentID"]
+    }
+
+    return jsonify(bookDAO.createStudent(students))
 
 
 # Update book
@@ -157,7 +174,7 @@ def update(bookID):
 # curl -i -H "Content-Type:application/json" -X PUT -d "{\"studentID\":\"--",\"firstname\":\"--",\"lastname\":\"--"}"
 # http://127.0.0.1:5000/students/1
 @app.route("/students/<int:bookid>", methods = ["PUT"])
-def update(bookid):
+def updatestudent(bookid):
     foundBook = bookDAO.getStudentById(bookid)
 
     if not foundBook:
@@ -182,21 +199,21 @@ def update(bookid):
 # Delete a book
 # curl -X DELETE http://127.0.0.1:5000/book/211
 @app.route("/book/<int:bookID>", methods = ["DELETE"])
-def delete(bookID):
+def deletebook(bookID):
     bookDAO.deleteBook(bookID)
     return jsonify({"done":True})
 
 # Delete a book from student account
 # curl -X DELETE http://127.0.0.1:5000/students/1
 @app.route("/students/<int:bookid>", methods = ["DELETE"])
-def delete(bookid):
+def deletestudent(bookid):
     bookDAO.deleteStudents(bookid)
     return jsonify({"done":True})
 
 # Delete a user
 # curl -X DELETE http://127.0.0.1:5000/users/odonovanm
 @app.route("/users/<username>", methods = ["DELETE"])
-def delete(username):
+def deleteuser(username):
     bookDAO.deleteUser(username)
     return jsonify({"done":True})
 
