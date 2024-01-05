@@ -58,18 +58,18 @@ The file dbconfig.py stores the connection for mysql, replace the existing host,
            'database': 'datarep3'
     }
 
-The python script createDatabase.py connects to mysql and creates the database and the tables. The script bookDAO.py interacts with the database and populates the tables. A Flask server can be created by ruuning the application.py, available at http://127.0.0.1:5000.</br>
+The python script *createDatabase.py* connects to mysql and creates the database and the tables. The script *bookDAO.py* interacts with the database and populates the tables. A Flask server can be created by ruuning the *application.py*, available at http://127.0.0.1:5000.</br>
 
 For the web interface navigate to http://127.0.0.1:5000/index.html/ and login to interact with the server.</br>
 
 ### PythonAnywhere Hosting
 
-The application is hosted on pythonanywhere at: https://g00411435.pythonanywhere.com/index.html/</br>
+The application is hosted on *pythonanywhere* at: https://g00411435.pythonanywhere.com/index.html/</br>
 
 ### References
-<br /> - *[1] :* Beatty A. Data Representation [Internet]. 2023. Available from: https://vlegalwaymayo.atu.ie/course/view.php?id=6209
-<br /> - *[2] :* Venkatesan N. Create and deploy a simple web application with flask and heroku [Internet]. Towards Data Science. 2021 [cited 2022 Dec 18]. Available from: https://towardsdatascience.com/create-and-deploy-a-simple-web-application-with-flask-and-heroku-103d867298eb
-<br /> - *[3] :* Git. Bootstrap Navbar with logo centered above navbar [Internet]. Coding Yaar. 2020 [cited 2022 Dec 18]. Available from: https://codingyaar.com/responsive-bootstrap-navbar-with-logo-centered-above-navbar/
-<br /> - *[4] :* 11. Jquery Ajax url path Issue [Internet]. Stack Overflow. [cited 2022 Dec 23]. Available from: https://stackoverflow.com/questions/24627075/jquery-ajax-url-path-issue
-<br /> - *[5] :* PythonAnywhere LLP. Forums [Internet]. Pythonanywhere.com. [cited 2022 Dec 24]. Available from: https://www.pythonanywhere.com/forums/topic/32182/
+<br />  *[1] :* Beatty A. Data Representation [Internet]. 2023. Available from: https://vlegalwaymayo.atu.ie/course/view.php?id=6209 <br />
+<br />  *[2] :* Venkatesan N. Create and deploy a simple web application with flask and heroku [Internet]. Towards Data Science. 2021 [cited 2023 Dec]. Available from: https://towardsdatascience.com/create-and-deploy-a-simple-web-application-with-flask-and-heroku-103d867298eb <br />
+<br />  *[3] :* Git. Bootstrap Navbar with logo centered above navbar [Internet]. Coding Yaar. 2020 [cited 2023 Dec]. Available from: https://codingyaar.com/responsive-bootstrap-navbar-with-logo-centered-above-navbar/ <br />
+<br />  *[4] :* 11. Jquery Ajax url path Issue [Internet]. Stack Overflow. [cited 2023 Dec]. Available from: https://stackoverflow.com/questions/24627075/jquery-ajax-url-path-issue <br />
+<br />  *[5] :* PythonAnywhere LLP. Forums [Internet]. Pythonanywhere.com. [cited 2023 Dec]. Available from: https://www.pythonanywhere.com/forums/topic/32182/ <br />
 
