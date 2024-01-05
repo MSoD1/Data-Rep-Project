@@ -52,10 +52,10 @@ $pip freeze
 The file dbconfig.py stores the connection for mysql, replace the existing host, username and password with local host values.</br>
 
      mysql = {
-          'host': '',</br>
-           'user': '',</br>
-           'password': '',</br>
-           'database': 'datarep3'</br>
+          'host': '',
+           'user': '',
+           'password': '',
+           'database': 'datarep3'
     }
 
 The python script createDatabase.py connects to mysql and creates the database and the tables. The script bookDAO.py interacts with the database and populates the tables. A Flask server can be created by ruuning the application.py, available at http://127.0.0.1:5000.</br>
